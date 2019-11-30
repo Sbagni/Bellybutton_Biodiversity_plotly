@@ -68,7 +68,8 @@ function buildMetadata(sample) {
             color: '850000'
           }
         }],
-
+      width:600,
+      height:400,
       title: 'Belly Button Wash Frequency',
       xaxis: {zeroline:false, showticklabels:false,
                  showgrid: false, range: [-1, 1]},
@@ -111,19 +112,21 @@ d3.json(chartsURL).then(function(data) {
   var topOtuLabels = data.otu_labels.slice(0,10);
   var topTenSampleValues = data.sample_values.slice(0,10);
     var data2 = [{
-      x: topTenOtuIds,
-      y : topTenSampleValues,
+      x: topTenSampleValues,
+      y : topTenOtuIds,
       hovertext : topOtuLabels,
       type : "bar",
+      orientation:'h',
+      marker:{width:5}
     }];
     var layout = {
       showlegend: true,
-      orientation:'h',
-    };
+      width:600,
+      height:600
+     };
     Plotly.newPlot('bar', data2, layout);
 });
-};
- 
+}; 
   function init() {
   // Grab a reference to the dropdown select element
   var selector = d3.select("#selDataset");
