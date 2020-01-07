@@ -11,7 +11,7 @@ from sqlalchemy import create_engine
 from flask import Flask, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 
-app = Flask(__name__)
+app = flask(__name__)
 
 
 #################################################
@@ -19,7 +19,7 @@ app = Flask(__name__)
 #################################################
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db/bellybutton.sqlite"
-d = SQLAlchemy(app)
+db = SQLAlchemy(app)
 
 # reflect an existing database into a new model
 Base = automap_base()
